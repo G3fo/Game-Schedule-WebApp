@@ -27,10 +27,12 @@ button,
   text-align: center;
 }
 
-#logo {
-  height: 10%;
-  width: 10%;
+#logo{
+  height: 9%;
+  bottom: 1rem
+  
 }
+
 
 body {
   background-color: rgb(55, 100, 41);
