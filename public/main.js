@@ -1,9 +1,9 @@
 Vue.component("boton", {
-  props: ['team1', 'team2', 'date', 'month', 'location', 'time', 'url', 'id'],
+  props: ['team1', 'team2', 'date', 'month', 'location', 'time', 'url'],
   template: `
               <div class="content">
-                <button class="btn btn-success" type="button" data-toggle="collapse" :data-target="'#match'+month+id"
-                  aria-expanded="false" :aria-controls="'#match'+month+id">
+                <button class="btn btn-success" type="button" data-toggle="collapse" :data-target="'#match'+month+index"
+                  aria-expanded="false" :aria-controls="'#match'+month+index">
                   <div class="row">
                     <b class="text-left col">
                       {{ team1 }} vs {{ team2 }}
@@ -12,7 +12,6 @@ Vue.component("boton", {
                   </div>
                 </button>
                 </div>
-                
   `
 })
 
@@ -22,8 +21,8 @@ Vue.component('mes', {
 })
 
 Vue.component('collapse', {
-  props: ['location', 'time', 'url', 'month', 'id'],
-  template: `<div class="collapse" :id="'match'+month+id">
+  props: ['location', 'time', 'url', 'month'],
+  template: `<div class="collapse" id="'match'+month+index">
               <div class="card card-body">
                 <div class="row">
                   <b class="text-left col">{{ location }} school</b>

@@ -29,12 +29,16 @@
 
     <div class="content" id="app">
 
-      <month v-for="mes, in matches" :mes='matches.month'></month>
+      <div v-for="mes in matches" :mes='matches.month'></div>
 
+      <h2>September</h2>
 
       <div v-for="(match, index) in matches.september">
 
-        <boton :team1="match.team1" :team2='match.team2' :date='match.date' :id='match.id' :time='match.time'
+        <boton class="portrait" :team1="match.team1" :team2='match.team2' :date='match.date' :id='match.id' :time='match.time'
+          :month='match.month' :location='match.location' :url='match.url'>
+        </boton>
+        <boton class="landscape" :team1="match.team1" :team2='match.team2' :date='match.date' :id='match.id' :time='match.time'
           :month='match.month' :location='match.location' :url='match.url'>
         </boton>
 
@@ -43,6 +47,18 @@
         <br>
       </div>
 
+      
+
+      <div v-for="(match, index) in matches.october">
+        
+        <boton :team1="match.team1" :team2='match.team2' :date='match.date' :id='match.id' :time='match.time'
+          :month='match.month' :location='match.location' :url='match.url'>
+        </boton>
+
+        <collapse :time='match.time' :month='match.month' :location='match.location' :url='match.url' :id='match.id'>
+        </collapse>
+        <br>
+      </div>
       <!-- <div v-for="(match, index) in matches.september">
         <div class="content">
           <button class="btn btn-success" type="button" data-toggle="collapse" :data-target="'#match'+index"
@@ -69,33 +85,6 @@
         <br />
       </div> -->
 
-      <h2>October</h2>
-      <br />
-      <div v-for="(match, index) in matches.october">
-        <div class="content">
-          <button class="btn btn-success" type="button" data-toggle="collapse" :data-target="'#match1'+index"
-            aria-expanded="false" :aria-controls="'#match1'+index">
-            <div class="row">
-              <b class="text-left col">
-                {{ match.team1 }} vs {{ match.team2 }}
-              </b>
-              <b class="text-right col">{{ match.date }}</b>
-            </div>
-          </button>
-        </div>
-
-        <div class="collapse" :id="'match1'+index">
-          <div class="card card-body">
-            <div class="row">
-              <b class="text-left col">{{ match.location }} school</b>
-              <b class="text-right col">{{ match.time }}</b>
-            </div>
-            <br />
-            <iframe :src="match.url" allowfullscreen></iframe>
-          </div>
-        </div>
-        <br />
-      </div>
     </div>
   </div>
 
