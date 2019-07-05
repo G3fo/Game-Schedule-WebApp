@@ -1,10 +1,11 @@
 var mapa = document.getElementById("mapa");
 
+
 Vue.component("boton", {
   props: ["team1", "team2", "date", "month", "location", "time", "url", "id"],
   template: `
               <div class="content">
-                <button onclick="showLandscapeMap(match.url)"
+                <button v-on:click="showLandscapeMap(url)"
                   class="btn btn-success" type="button" data-toggle="collapse" :data-target="'#match'+month+id"
                   aria-expanded="false" :aria-controls="'#match'+month+id">
                   <div class="row">
@@ -18,13 +19,6 @@ Vue.component("boton", {
   `
 });
 
-function showLandscapeMap(url) {
-  $("#mapa").attr("src", url);
-  mapa.innerHTML = "<iframe src='" + url + "' allowfullscreen></iframe>";
-  // $(".btn-estadio-class").removeClass("unaClase");
-  // $("#btn-estadio" + index).addClass("unaClase");
-}
-
 Vue.component("collapse", {
   props: ["location", "time", "url", "month", "id"],
   template: `<div class="collapse" :id="'match'+month+id">
@@ -34,7 +28,7 @@ Vue.component("collapse", {
                   <b class="text-right col">{{ time }}</b>
                 </div>
                 <br />
-                <iframe :src="url" allowfullscreen></iframe>
+                <iframe id="mapa" :src="url" allowfullscreen></iframe>
               </div>
             </div>
   `
@@ -42,10 +36,19 @@ Vue.component("collapse", {
 
 var app = new Vue({
   el: "#app",
-  data() {
+  data() {  
     return {
       matches
     };
   },
-  methods: {}
+  methods: {
+     showLandscapeMap(url) {
+        $("#mapa").attr("src", url);
+        mapa.innerHTML = "<iframe src='" + url + "' allowfullscreen></iframe>";
+      // $(".btn-estadio-class").removeClass("unaClase");
+      // $("#btn-estadio" + index).addClass("unaClase");
+    }
+  }
+
 });
+

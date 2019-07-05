@@ -60,13 +60,11 @@ iframe {
 }
 
 #stripes {
-  background-image: repeating-linear-gradient(
-    145deg,
-    rgb(40, 114, 19),
-    rgb(40, 114, 19) 30px,
-    rgb(55, 100, 41) 30px,
-    rgb(55, 100, 41) 60px
-  );
+  background-image: repeating-linear-gradient(145deg,
+      rgb(40, 114, 19),
+      rgb(40, 114, 19) 30px,
+      rgb(55, 100, 41) 30px,
+      rgb(55, 100, 41) 60px);
 }
 
 @media only screen and (orientation: Portrait) {
