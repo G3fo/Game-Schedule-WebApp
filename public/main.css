@@ -50,6 +50,11 @@ h3 {
   border-radius: 8px;
 }
 
+.text-right,
+.text-left {
+  padding: 0px;
+}
+
 iframe {
   border-radius: 5px;
 }
@@ -91,9 +96,5 @@ iframe {
   #col-right,
   #col-left {
     width: 50%;
-  }
-
-  #col-right {
-    margin-top: 5%;
   }
 }
