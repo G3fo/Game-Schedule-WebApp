@@ -3,13 +3,22 @@ var mapa = document.getElementById("mapa");
 Vue.component("boton", {
   props: ["team1", "team2", "date", "month", "location", "time", "url", "id"],
   methods: {
-    showLandscapeMap(url) {
-      mapa.innerHTML = "<iframe src='" + url + "' allowfullscreen></iframe>";
+    showLandscapeMap(url, location, time) {
+      mapa.innerHTML =
+        `<iframe src='` +
+        url +
+        `' allowfullscreen></iframe><br />
+                        <b class="text-left col">` +
+        location +
+        ` school</b>
+                        <b class="text-right col">` +
+        time +
+        `</b>`;
     }
   },
   template: `
               <div class="content">
-                <button v-on:click="showLandscapeMap(url)"
+                <button v-on:click="showLandscapeMap(url, location, time)"
                   class="btn btn-success" type="button" data-toggle="collapse" :data-target="'#match'+month+id"
                   aria-expanded="false" :aria-controls="'#match'+month+id">
                   <div class="row">
